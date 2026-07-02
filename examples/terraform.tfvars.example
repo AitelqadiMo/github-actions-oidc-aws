@@ -1,0 +1,19 @@
+github_org  = "AitelqadiMo"
+github_repo = "my-app"
+
+# Only the main branch may assume the role. Other options:
+#   subject_claim = "environment:production"
+#   subject_claim = "*"   # any ref in the repo
+subject_claim = "ref:refs/heads/main"
+
+role_name = "github-actions-deploy"
+
+# Grant only what the pipeline needs.
+managed_policy_arns = [
+  "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess",
+]
+
+tags = {
+  Project   = "github-actions-oidc-aws"
+  ManagedBy = "terraform"
+}
